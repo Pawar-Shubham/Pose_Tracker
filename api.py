@@ -79,8 +79,8 @@ def generate_frames():
         frame = latest_frame.copy()
 
         # Convert frame to RGB for pose processing
-        rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        result = tracker.pose.process(rgb_frame) if tracker else None
+        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        result = tracker.pose.process(frame) if tracker else None
 
         if result and result.pose_landmarks:
             landmarks = result.pose_landmarks.landmark
